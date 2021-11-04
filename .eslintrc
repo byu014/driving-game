@@ -12,6 +12,8 @@
     "standard"
   ],
   "rules": {
+    "no-unused-vars": "off",
+    "prefer-const": "off",
     "no-var": "off",
     "semi": [
       "error",
@@ -50,7 +52,7 @@
         "js/main.js"
       ],
       "globals": {
-        "Car": "readonly"
+        "data": "readonly"
       }
     }
   ]
