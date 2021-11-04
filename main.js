@@ -1,3 +1,4 @@
+const $img = document.querySelector('img');
 const directions = {
   ArrowUp: 'north',
   ArrowDown: 'south',
@@ -12,12 +13,14 @@ const turns = {
   north: 0.75
 };
 const car = {
-  direction: 'east'
+  direction: 'east',
+  position: {
+    x: $img.x,
+    y: $img.y
+  }
 };
 
 let turn = 0.0;
-
-const $img = document.querySelector('img');
 
 window.addEventListener('keydown', function (event) {
   car.direction = directions[event.key];
