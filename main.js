@@ -1,8 +1,28 @@
+const $img = document.querySelector('img');
 const directions = {
-  ArrowUp: 'north',
-  ArrowDown: 'south',
-  ArrowRight: 'east',
-  ArrowLeft: 'west'
+  ArrowUp: {
+    orientation: 'north',
+    axis: 'y',
+    style: 'top'
+
+  },
+  ArrowDown: {
+    orientation: 'south',
+    axis: 'y',
+    style: 'top'
+
+  },
+  ArrowRight: {
+    orientation: 'east',
+    axis: 'x',
+    style: 'left'
+
+  },
+  ArrowLeft: {
+    orientation: 'west',
+    axis: 'x',
+    style: 'left'
+  }
 };
 
 const turns = {
@@ -11,15 +31,43 @@ const turns = {
   west: 0.5,
   north: 0.75
 };
+
 const car = {
-  direction: 'east'
+  direction: {
+    orientation: 'east',
+    axis: 'x',
+    style: 'left'
+  },
+  position: {
+    x: $img.x,
+    y: $img.y
+  }
+};
+const moves = {
+  distancePX: 3,
+  x: {
+    east: () => car.position.x + moves.distancePX,
+    west: () => car.position.x - moves.distancePX
+  },
+  y: {
+    north: () => car.position.y - moves.distancePX,
+    south: () => car.position.y + moves.distancePX
+  }
 };
 
-let turn = 0.0;
-
-const $img = document.querySelector('img');
+let moveInterval = setInterval(moveCar, 16);
 
 window.addEventListener('keydown', function (event) {
+  if (!(event.key in directions)) {
+    return;
+  }
   car.direction = directions[event.key];
   $img.style.transform = `rotate(${turns[car.direction]}turn)`;
+  // moveCar();
 });
+
+function moveCar() {
+  $img.style[car.direction.style] = `${moves[car.direction.axis][car.direction.orientation]()}px`;
+  car.position.x = $img.x;
+  car.position.y = $img.y;
+}
