@@ -4,7 +4,6 @@ const directions = {
     orientation: 'north',
     axis: 'y',
     style: 'top'
-
   },
   ArrowDown: {
     orientation: 'south',
@@ -59,18 +58,18 @@ const moves = {
 let moveInterval = setInterval(moveCar, 16);
 
 window.addEventListener('keydown', function (event) {
-  if (!(event.key in directions)) {
-    return;
+  if (event.code in directions) {
+    car.direction = directions[event.code];
+    $img.style.transform = `rotate(${turns[car.direction]}turn)`;
+  } else if (event.code === 'Space') {
+    car.isStopped = !car.isStopped;
   }
-  car.direction = directions[event.key];
-  $img.style.transform = `rotate(${turns[car.direction]}turn)`;
-  // moveCar();
 });
 
 function moveCar() {
-  // if (car.isStopped) {
-  //   return;
-  // }
+  if (car.isStopped) {
+    return;
+  }
   $img.style[car.direction.style] = `${moves[car.direction.axis][car.direction.orientation]()}px`;
   car.position.x = $img.x;
   car.position.y = $img.y;
