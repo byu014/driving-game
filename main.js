@@ -41,7 +41,8 @@ const car = {
   position: {
     x: $img.x,
     y: $img.y
-  }
+  },
+  isStopped: false
 };
 const moves = {
   distancePX: 3,
@@ -67,6 +68,9 @@ window.addEventListener('keydown', function (event) {
 });
 
 function moveCar() {
+  // if (car.isStopped) {
+  //   return;
+  // }
   $img.style[car.direction.style] = `${moves[car.direction.axis][car.direction.orientation]()}px`;
   car.position.x = $img.x;
   car.position.y = $img.y;
