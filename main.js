@@ -63,7 +63,7 @@ window.addEventListener('keydown', function (event) {
   }
   car.direction = directions[event.key];
   $img.style.transform = `rotate(${turns[car.direction]}turn)`;
-  moveCar();
+  // moveCar();
 });
 
 function moveCar() {
