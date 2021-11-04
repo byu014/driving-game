@@ -6,4 +6,5 @@
 
 img {
   width: 9rem;
+  transition: transform 0.3s;
 }
