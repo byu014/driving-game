@@ -44,17 +44,18 @@ const car = {
   }
 };
 const moves = {
+  distancePX: 3,
   x: {
-    east: () => car.position.x + 1,
-    west: () => car.position.x - 1
+    east: () => car.position.x + moves.distancePX,
+    west: () => car.position.x - moves.distancePX
   },
   y: {
-    north: () => car.position.y - 1,
-    south: () => car.position.y + 1
+    north: () => car.position.y - moves.distancePX,
+    south: () => car.position.y + moves.distancePX
   }
 };
 
-// setInterval();
+let moveInterval = setInterval(moveCar, 16);
 
 window.addEventListener('keydown', function (event) {
   if (!(event.key in directions)) {
