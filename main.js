@@ -60,7 +60,7 @@ let moveInterval = setInterval(moveCar, 16);
 window.addEventListener('keydown', function (event) {
   if (event.code in directions) {
     car.direction = directions[event.code];
-    $img.style.transform = `rotate(${turns[car.direction]}turn)`;
+    $img.style.transform = `rotate(${turns[car.direction.orientation]}turn)`;
   } else if (event.code === 'Space') {
     car.isStopped = !car.isStopped;
   }
