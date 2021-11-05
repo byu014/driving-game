@@ -24,12 +24,11 @@ const directions = {
   }
 };
 
-// const turns = {
-//   east: 0.0,
-//   south: 0.25,
-//   west: 0.5,
-//   north: 0.75
-// };
+const models = {
+  f1: 'f1.svg',
+  magenta: 'magenta.svg',
+  purple: 'purple.svg'
+};
 
 const car = {
   direction: {
