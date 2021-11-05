@@ -8,5 +8,5 @@
 img {
   position: absolute;
   width: 9rem;
-  transition: transform 0.3s;
+  transition: transform 0.1s;
 }
