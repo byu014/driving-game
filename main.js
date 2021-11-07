@@ -1,4 +1,4 @@
-const $img = document.querySelector('img');
+const $img = document.querySelector('#main-car');
 const directions = {
   ArrowUp: {
     orientation: 'north',
