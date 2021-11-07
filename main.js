@@ -1,4 +1,5 @@
-const $img = document.querySelector('img');
+const $img = document.querySelector('#main-car');
+const $selectModels = document.querySelector('.select-models');
 const directions = {
   ArrowUp: {
     orientation: 'north',
@@ -24,12 +25,11 @@ const directions = {
   }
 };
 
-// const turns = {
-//   east: 0.0,
-//   south: 0.25,
-//   west: 0.5,
-//   north: 0.75
-// };
+const models = {
+  f1: 'f1.svg',
+  magenta: 'magenta.svg',
+  purple: 'purple.svg'
+};
 
 const car = {
   direction: {
@@ -65,6 +65,11 @@ window.addEventListener('keydown', function (event) {
     $img.style.transform = `rotate(${car.rotation}turn)`;
   } else if (event.code === 'Space') {
     car.isStopped = !car.isStopped;
+  }
+});
+$selectModels.addEventListener('click', function (event) {
+  if (event.target.matches('img')) {
+    $img.src = event.target.src;
   }
 });
 
